@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-/* GET users listing. */
+/* GET users list ing. */
 router.get('/all', function (req, res, next) {
     if (sensors[0] == null || sensors[0] == undefined) {
         res.statusCode = 404;
