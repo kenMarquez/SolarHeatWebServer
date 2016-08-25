@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
         sensors[0] = data;
         res.json(data);
     } else {
-        res.statusCode = 400;
+        res.statusCode = 200;
         // res.send('Bad request');
         var error = "Estas pasando los datos mal Noe";
         res.json(error);
@@ -24,7 +24,16 @@ router.get('/', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/all', function (req, res, next) {
-    res.json(sensors);
+    if (sensors[0] == null || sensors[0] == undefined) {
+        res.statusCode = 404;
+        var error = "No hay datos";
+        res.json(error);
+    }
+    {
+        res.statusCode = 200;
+        res.json(sensors[0]);
+    }
+
 });
 
 
